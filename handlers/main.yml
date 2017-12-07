@@ -2,5 +2,5 @@
 
 - name: Restart openmdns
   service:
-    name: openmdns
+    name: "{{ openmdns_service }}"
     state: restarted

@@ -1,0 +1,17 @@
+---
+
+- name: Install openmdns
+  pkgng:
+    name: "{{ openmdns_package }}"
+    state: present
+
+- name: Create /etc/rc.conf.d/mdnsd
+  template:
+    dest: "/etc/rc.conf.d/{{ openmdns_service }}"
+    src: FreeBSD.rcd.j2
+    validate: sh -n %s
+
+- name: Enable openmdns
+  service:
+    name: "{{ openmdns_service }}"
+    enabled: yes
