@@ -1,0 +1,37 @@
+---
+# tasks file for ansible-role-openmdns
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- include: "install-{{ ansible_os_family }}.yml"
+
+- name: Create log directory
+  file:
+    path: "{{ openmdns_log_dir }}"
+    mode: 0755
+    owner: "{{ openmdns_user }}"
+    group: "{{ openmdns_group }}"
+    state: directory
+  notify: Restart openmdns
+
+- name: Create db directory
+  file:
+    path: "{{ openmdns_db_dir }}"
+    mode: 0755
+    owner: "{{ openmdns_user }}"
+    group: "{{ openmdns_group }}"
+    state: directory
+  notify: Restart openmdns
+
+- name: Create openmdns.conf
+  template:
+    src: openmdns.conf.j2
+    dest: "{{ openmdns_conf_file }}"
+    validate: echo %s
+  notify: Restart openmdns
+
+- name: Start openmdns
+  service:
+    name: "{{ openmdns_service }}"
+    enabled: true
+    state: started

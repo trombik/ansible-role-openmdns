@@ -1,0 +1,8 @@
+openmdns_user: openmdns
+openmdns_group: openmdns
+openmdns_log_dir: /var/log/openmdns
+openmdns_db_dir: "{{ __openmdns_db_dir }}"
+openmdns_service: openmdns
+openmdns_conf_dir: "{{ __openmdns_conf_dir }}"
+openmdns_conf_file: "{{ __openmdns_conf_dir }}/openmdns.conf"
+openmdns_flags: ""

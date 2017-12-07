@@ -1,0 +1,6 @@
+---
+
+- name: Restart openmdns
+  service:
+    name: openmdns
+    state: restarted

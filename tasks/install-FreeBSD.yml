@@ -1,0 +1,6 @@
+---
+
+- name: Install openmdns
+  pkgng:
+    name: openmdns
+    state: present

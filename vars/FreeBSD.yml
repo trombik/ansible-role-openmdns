@@ -1,0 +1,2 @@
+__openmdns_db_dir: /var/db/openmdns
+__openmdns_conf_dir: /usr/local/etc/openmdns

@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+    - ansible-role-openmdns
+  vars:
+    openmdns_config: ""
