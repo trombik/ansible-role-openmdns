@@ -1,6 +1,6 @@
 # ansible-role-openmdns
 
-A brief description of the role goes here.
+Manage `mdnsd(8)`, aka [OpenMDNS](http://www.haesbaert.org/openmdns/).
 
 # Requirements
 
@@ -8,9 +8,22 @@ None
 
 # Role Variables
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
+| `openmdns_user` | User of `mdnsd(8)` | `{{ __openmdns_user }}` |
+| `openmdns_group` | Group of `mdnsd(8)` | `{{ __openmdns_group }}` |
+| `openmdns_service` | Service of `mdnsd(8)` | `{{ __openmdns_service }}` |
+| `openmdns_package` | Package of `openmdns` | `{{ __openmdns_package }}` |
+| `openmdns_flags` | Flags for `mdnsd(8)` | `""` |
 
+## OpenBSD
+
+| Variable | Default |
+|----------|---------|
+| `__openmdns_user` | `_mdnsd` |
+| `__openmdns_group` | `_mdnsd` |
+| `__openmdns_service` | `mdnsd` |
+| `__openmdns_package` | `openmdns` |
 
 # Dependencies
 
@@ -19,6 +32,11 @@ None
 # Example Playbook
 
 ```yaml
+- hosts: localhost
+  roles:
+    - ansible-role-openmdns
+  vars:
+    openmdns_flags: em0
 ```
 
 # License
