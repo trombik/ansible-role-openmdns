@@ -5,7 +5,7 @@ package = "openmdns"
 service = "mdnsd"
 _user    = "_mdnsd"
 _group   = "_mdnsd"
-ports   = [5353]
+ports = [5353]
 
 describe package(package) do
   it { should be_installed }
