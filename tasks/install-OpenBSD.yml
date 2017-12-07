@@ -1,0 +1,12 @@
+---
+
+- name: Install openmdns
+  openbsd_pkg:
+    name: "{{ openmdns_package }}"
+    state: present
+
+- name: Enable openmdns
+  service:
+    name: "{{ openmdns_service }}"
+    arguments: "{{ openmdns_flags }}"
+    enabled: yes

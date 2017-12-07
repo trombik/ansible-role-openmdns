@@ -2,4 +2,4 @@
   roles:
     - ansible-role-openmdns
   vars:
-    openmdns_config: ""
+    openmdns_flags: em0

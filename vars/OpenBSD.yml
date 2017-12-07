@@ -1,0 +1,4 @@
+__openmdns_user: _mdnsd
+__openmdns_group: _mdnsd
+__openmdns_service: mdnsd
+__openmdns_package: openmdns
