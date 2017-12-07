@@ -3,8 +3,8 @@ require "serverspec"
 
 package = "openmdns"
 service = "mdnsd"
-user    = "_mdnsd"
-group   = "_mdnsd"
+_user    = "_mdnsd"
+_group   = "_mdnsd"
 ports   = [5353]
 
 describe package(package) do
